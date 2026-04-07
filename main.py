@@ -36,7 +36,7 @@ def print_step(step_number, title):
 # the next one.
 # ---------------------------------------------------------------
 
-def step_scrape():
+def step_scrape(query):
     """
     Runs the Pinterest scraper.
     Returns a list of local image file paths, or exits if it fails.
@@ -45,7 +45,7 @@ def step_scrape():
     start = time.time()
 
     try:
-        image_paths = run_scraper()
+        image_paths = run_scraper(query)
     except Exception as e:
         print(f"\n[ERROR] Scraper failed: {e}")
         print("  Possible causes:")
@@ -162,7 +162,9 @@ if __name__ == "__main__":
     run_start = time.time()
     print_banner()
 
-    image_paths  = step_scrape()
+    query = input("Enter a topic: ")
+
+    image_paths  = step_scrape(query)
     ocr_results  = step_ocr(image_paths)
     word_counts  = step_analysis(ocr_results)
 

@@ -20,7 +20,7 @@ def create_driver():
 
     # Run browser in the background (no visible window)
     # Comment this line out if you want to SEE the browser open
-    #options.add_argument("--headless=new")
+    options.add_argument("--headless=new")
 
     # These options make the browser more stable and avoid detection
     options.add_argument("--no-sandbox")
@@ -43,13 +43,13 @@ def create_driver():
     return driver
 
 
-def scroll_and_collect(driver):
+def scroll_and_collect(driver, query):
     """
     Scrolls down the Pinterest page several times to trigger
     lazy loading, then collects all image URLs found.
     """
-    print(f"[Scraper] Opening: {PINTEREST_URL}")
-    driver.get(PINTEREST_URL)
+    print(f"[Scraper] Opening: {PINTEREST_URL + query}")
+    driver.get(PINTEREST_URL + query)
 
     # Wait until at least one <img> tag appears on the page
     # This prevents BeautifulSoup from parsing an empty page
@@ -125,7 +125,7 @@ def download_images(image_urls):
     return local_paths
 
 
-def run_scraper():
+def run_scraper(query):
     """
     Main function that orchestrates the full scraping flow:
     1. Open browser
@@ -136,7 +136,7 @@ def run_scraper():
     driver = create_driver()
 
     try:
-        image_urls = scroll_and_collect(driver)
+        image_urls = scroll_and_collect(driver, query)
         print(f"\n[Scraper] Total images collected: {len(image_urls)}")
 
         local_paths = download_images(image_urls)

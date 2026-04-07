@@ -1,10 +1,10 @@
 import os
 
 # Target URL (Pinterest board or search)
-PINTEREST_URL = "https://www.pinterest.com/search/pins/?q=infographic+tips"
+PINTEREST_URL = "https://www.pinterest.com/search/pins/?q="
 
 # How many images to process per run
-MAX_IMAGES = 20
+MAX_IMAGES = 40
 
 # Wait time for page to load (seconds)
 PAGE_LOAD_WAIT = 4
@@ -21,5 +21,6 @@ OCR_LANG = "eng"
 STOPWORDS = {
     "the", "and", "for", "with", "you", "are", "this",
     "that", "have", "from", "your", "will", "can", "not",
-    "de", "la", "el", "en", "es", "un", "que", "se"
+    "de", "la", "el", "en", "es", "un", "que", "se", "por", 
+    "uno", "una", "eso", "esa", "los", "las", "esta", "esto"
 }
