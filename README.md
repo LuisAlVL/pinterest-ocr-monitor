@@ -3,7 +3,7 @@
 A Python pipeline that scrapes Pinterest search results, downloads images, extracts text using Tesseract OCR, and generates visual trend reports showing the most frequent words found across images.
 
 ```
-Scrape Pinterest → Download Images → Run OCR → Analyze Trends → Generate Reports
+Enter query -> Scrape Pinterest → Download Images → Run OCR → Analyze Trends → Generate Reports
 ```
 
 ---
